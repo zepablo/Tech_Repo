@@ -69,3 +69,7 @@ nav li::before {
     opacity: 0.9;
   }
 }
+
+footer {
+  float: right;
+}
