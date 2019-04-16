@@ -11,10 +11,10 @@
     <div class="main">
       <nav id="navbar">
         <div class="index">
-          <header>JavaScript Array Methods (W3Schools)</header>
+          <header>JavaScript Array Methods (MDN Web Docs)</header>
           <ul>
             <li><a href="#section1" class="nav-link">concat()</a></li>
-            <li><a href="#section2" class="nav-link">copyWithin()</a></li>
+            <li><a href="#section2" class="nav-link">find()</a></li>
             <li><a href="#section3" class="nav-link">entries()</a></li>
             <li><a href="#section4" class="nav-link">every()</a></li>
             <li><a href="#section5" class="nav-link">filter()</a></li>
@@ -44,17 +44,33 @@
           </div>
         </section>
         <section class="main-section" id="section2">
-          <header>copyWithin()</header>
+          <header>find()</header>
           <p>
-            The copyWithin() method copies array elements within the array, to
-            and from specified positions.<br />
-            Example:
+            The find() method returns the value of the first element in an array
+            that pass a test (provided as a function). The find() method
+            executes the function once for each element present in the array:
           </p>
+          <ul>
+            <li>
+              If it finds an array element where the function returns a true
+              value, find() returns the value of that array element (and does
+              not check the remaining values)
+            </li>
+            <li>Otherwise it returns undefined</li>
+          </ul>
+          Example:
+
           <div class="example-code">
             <code>
-              var fruits = ["Banana", "Orange", "Apple", "Mango"];<br />
-              fruits.copyWithin(2, 0); <br />
-              //Banana,Orange,Banana,Orange
+              var ages = [3, 10, 18, 20];<br />
+              function checkAdult(age) {<br />
+              return age >= 18;<br />
+              } <br />
+              function myFunction() {<br />
+              document.getElementById("demo").innerHTML =
+              ages.find(checkAdult);<br />
+              }<br />
+              //18
             </code>
           </div>
         </section>
@@ -73,6 +89,15 @@
             <li>[2, "Apple"]</li>
             <li>[3, "Mango"]</li>
           </ul>
+
+          <div class="example-code">
+            <code>
+              var fruits = ["Banana", "Orange", "Apple", "Mango"];<br />
+              fruits.entries();<br />
+              console.log(fruits.next().value); <br />
+              //[0, "Banana"]
+            </code>
+          </div>
         </section>
         <section class="main-section" id="section4">
           <header>every()</header>
@@ -90,30 +115,68 @@
             </li>
             <li>If no false occur, every() returns true</li>
           </ul>
+          <div class="example-code">
+            <code>
+              function isBelowThreshold(currentValue) {<br />
+              return currentValue < 40;<br />
+              } var array1 = [1, 30, 39, 29, 10, 13];<br /><br />
+              console.log(array1.every(isBelowThreshold));<br />
+              // expected output: true<br />
+            </code>
+          </div>
         </section>
         <section class="main-section" id="section5">
           <header>filter()</header>
           <p>
-            The filter() method creates an array filled with all array elements
-            that pass a test (provided as a function).
+            The filter() method creates a new array with all elements that pass
+            the test implemented by the provided function.
           </p>
+          <div class="example-code">
+            <code>
+              var words = ['spray', 'limit', 'elite', 'exuberant',
+              'destruction', 'present'];<br />
+              const result = words.filter(word => word.length > 6);<br /><br />
+              console.log(result);<br />
+              // // expected output: Array ["exuberant", "destruction",
+              "present"]<br />
+            </code>
+          </div>
         </section>
         <section class="main-section" id="section6">
           <header>map()</header>
           <p>
             The map() method creates a new array with the results of calling a
-            function for every array element. The map() method calls the
-            provided function once for each element in an array, in order.
+            provided function on every element in the calling array.
           </p>
+          <div class="example-code">
+            <code>
+              var array1 = [1, 4, 9, 16]; <br />
+              // pass a function to map<br />
+              const map1 = array1.map(x => x * 2);<br /><br />
+              console.log(map1); <br />
+              // expected output: Array [2, 8, 18, 32]
+            </code>
+          </div>
         </section>
         <section class="main-section" id="section7">
           <header>reduce()</header>
           <p>
-            The reduce() method reduces the array to a single value. The
-            reduce() method executes a provided function for each value of the
-            array (from left-to-right). The return value of the function is
-            stored in an accumulator (result/total).
+            The reduce() method executes a reducer function (that you provide)
+            on each member of the array resulting in a single output value.
           </p>
+          <div class="example-code">
+            <code>
+              const array1 = [1, 2, 3, 4];<br />
+              const reducer = (accumulator, currentValue) => accumulator +
+              currentValue;<br />
+              // 1 + 2 + 3 + 4<br />
+              console.log(array1.reduce(reducer));<br />
+              // expected output: 10<br />
+              // 5 + 1 + 2 + 3 + 4<br /><br />
+              console.log(array1.reduce(reducer, 5));<br />
+              // expected output: 15
+            </code>
+          </div>
         </section>
       </div>
     </div>

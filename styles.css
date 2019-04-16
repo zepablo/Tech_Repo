@@ -1,20 +1,24 @@
 .main {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+  /* display: grid;
+  grid-template-columns: 1fr 3fr; */
 }
 nav {
-  /* width: 250px; */
+  width: 20vw;
   padding: 5px;
-  height: 100%;
+  height: 100vh;
   border-style: double;
   border-width: thin;
   border-color: gray;
   align-self: left;
   /* add a scroll bar */
   overflow: scroll;
+  position: fixed;
 }
 .main-doc {
-  padding: 5px;
+  width: 75vw;
+  padding-left: 22vw;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 header {
   text-align: center;
@@ -29,7 +33,7 @@ nav li {
   left: -40px;
   /* add a padding of 25 */
   padding-left: 25px;
-  padding-bottom: 10px;
+  padding-bottom: 20vh;
   font-size: 25px;
 }
 nav li::before {
@@ -38,5 +42,30 @@ nav li::before {
 }
 .example-code {
   background-color: rgb(238, 234, 234);
+  margin-bottom: 5px;
   /* font-size: 10px; */
+}
+
+@media (max-width: 600px) {
+  nav {
+    width: 100vw;
+    height: 25vh;
+    position: fixed;
+    background-color: white;
+    opacity: 0;
+  }
+  .main-doc {
+    width: 100vw;
+    height: 75vh;
+    /* top, right, bottom, and left */
+    padding: 27vh 0 0 0;
+    /* padding-top: 27vh;
+    padding:  */
+  }
+  nav li {
+    padding-bottom: 5px;
+  }
+  nav:hover {
+    opacity: 0.9;
+  }
 }
